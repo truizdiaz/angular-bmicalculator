@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-resultado',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./resultado.component.css']
 })
 export class ResultadoComponent implements OnInit {
+  bmi: number
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { 
+    this.bmi = +route.snapshot.paramMap.get('valor')!;
+    console.log(this.bmi)
+  }
 
   ngOnInit(): void {
   }
